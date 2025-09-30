@@ -1,0 +1,5 @@
+services:
+  creador:
+    image: miapp-creador:latest
+  visitor:
+    image: miapp-visitor:latest
