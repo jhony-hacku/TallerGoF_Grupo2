@@ -1,3 +1,5 @@
+package creador;
+
 // MateriaPosgrado.java
 public class MateriaPosgrado implements Materia {
     private final String nombre;

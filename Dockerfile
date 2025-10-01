@@ -1,14 +1,17 @@
-# build
-FROM eclipse-temurin:17-jdk AS build
-WORKDIR /build
-COPY src/ /build/src/
-RUN find /build/src -name "*.java" > sources.txt \
- && javac -encoding UTF-8 -Xlint:unchecked -d /build/out @sources.txt
+# Usa la imagen oficial de OpenJDK 17
+FROM openjdk:17-slim
 
-# runtime
-FROM eclipse-temurin:17-jre
+# Establece el directorio de trabajo dentro del contenedor
 WORKDIR /app
-COPY --from=build /build/out /app/classes
-ARG MAIN_CLASS
-ENV MAIN_CLASS=${MAIN_CLASS}
-CMD ["sh","-c","java -cp /app/classes ${MAIN_CLASS}"]
+
+# Copia toda la estructura del proyecto
+COPY src/main/java/creador/ /app/creador/
+COPY src/main/java/visitor/ /app/visitor/
+
+# Compila todos los archivos Java manteniendo la estructura de directorios
+RUN javac creador/*.java
+RUN javac visitor/*.java
+
+# Por defecto ejecuta el patrón creador (Abstract Factory)
+# Usa -cp . para buscar las clases en el directorio actual
+CMD ["java", "-cp", ".", "creador.Main"]

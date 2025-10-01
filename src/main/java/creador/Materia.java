@@ -1,3 +1,5 @@
+package creador;
+
 // Materia.java
 public interface Materia {
     String getInfo();

@@ -1,3 +1,5 @@
+package creador;
+
 // SistemaInscripcion.java
 public class SistemaInscripcion {
     public void inscribir(Estudiante e, MateriaFactory factory, String nombreMateria, String codigoMateria) {

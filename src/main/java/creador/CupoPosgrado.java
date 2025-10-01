@@ -1,3 +1,5 @@
+package creador;
+
 // CupoPosgrado.java
 public class CupoPosgrado implements Cupo {
     private final int capacidad = 20;

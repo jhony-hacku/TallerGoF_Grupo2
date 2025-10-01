@@ -1,5 +1,22 @@
 services:
-  creador:
-    image: miapp-creador:latest
-  visitor:
-    image: miapp-visitor:latest
+  # Servicio para el patrón Abstract Factory (Creador)
+  patron-creador:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: taller-patrones-gof:creador
+    container_name: patron-abstract-factory
+    command: ["java", "-cp", ".", "creador.Main"]
+    stdin_open: true
+    tty: true
+
+  # Servicio para el patrón Visitor
+  patron-visitor:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: taller-patrones-gof:visitor
+    container_name: patron-visitor
+    command: ["java", "-cp", ".", "visitor.MainVisitor"]
+    stdin_open: true
+    tty: true

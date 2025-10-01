@@ -1,3 +1,5 @@
+package visitor;
+
 interface Solicitud {
     void aceptar(SolicitudVisitor visitor);
 }
