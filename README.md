@@ -41,35 +41,76 @@ Ejemplos de problemas:
 
 ## 📂 Estructura del Proyecto
 
-├── CHANGELOG.md # Historial de cambios del proyecto
-├── CONTRIBUTING.md # Guía para contribuir al proyecto
-├── Dockerfile # Imagen base para contenedor
-├── LICENSE # Licencia del proyecto
-├── Makefile # Automatización de tareas
-├── README.md # Documentación principal
-├── conf/ # Configuración (YAML, JSON)
-├── docker-compose.yml # Orquestación con Docker
-├── docs/ # Documentación técnica y de usuario
-│ ├── api
-│ ├── architecture
-│ └── user_guide
-├── jupyter/ # Datasets y notebooks de análisis
-├── scripts/ # Scripts de despliegue, setup y pruebas
-├── src/ # Código fuente (Java, tests y recursos)
-└── temp/ # Archivos temporales
-
+```
+├── CHANGELOG.md              # Historial de cambios del proyecto
+├── CONTRIBUTING.md           # Guía para contribuir al proyecto
+├── Dockerfile                # Imagen base para contenedor
+├── LICENSE                   # Licencia del proyecto
+├── Makefile                  # Automatización de tareas
+├── README.md                 # Documentación principal
+├── conf/                     # Configuración (YAML, JSON)
+├── docker-compose.yml        # Orquestación con Docker
+├── docs/                     # Documentación técnica y de usuario
+│   ├── api
+│   ├── architecture
+│   └── user_guide
+├── jupyter/                  # Datasets y notebooks de análisis
+├── scripts/                  # Scripts de despliegue, setup y pruebas
+├── src/                      # Código fuente (Java, tests y recursos)
+└── temp/                     # Archivos temporales
+```
 
 ---
 
 ## ▶️ Ejecución del Proyecto
 
-1. Clonar el repositorio:
-   ```bash
-   git clone <url-del-repositorio>
-   cd taller-patrones-gof
 
-javac src/**/*.java -d bin
-java -cp bin Main
+#### Prerrequisitos
+- Docker instalado en tu sistema
+- Permisos para ejecutar Docker (usuario en grupo `docker`)
 
-## Diagramas
-Revisar los diagramas en la carpeta diagrams/
+#### Construir la imagen Docker
+```bash
+docker build -t taller-patrones-gof .
+```
+
+#### Ejecutar el contenedor
+```bash
+# Ejecución simple
+docker run taller-patrones-gof
+
+# Ejecución con eliminación automática del contenedor
+docker run --rm taller-patrones-gof
+
+# Ejecución en modo interactivo
+docker run -it taller-patrones-gof
+```
+
+#### Gestión de imágenes y contenedores
+
+**Ver imágenes creadas:**
+```bash
+docker images
+```
+
+**Ver contenedores (todos):**
+```bash
+docker ps -a
+```
+
+**Eliminar contenedores detenidos:**
+```bash
+docker container prune
+```
+
+**Eliminar la imagen:**
+```bash
+# Opción 1: Forzar eliminación
+docker rmi -f taller-patrones-gof
+
+
+---
+
+## 📊 Diagramas
+
+Revisar los diagramas en la carpeta `diagrams/`
