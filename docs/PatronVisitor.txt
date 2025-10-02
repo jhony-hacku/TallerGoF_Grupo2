@@ -1,0 +1,17 @@
+Uso del Patrón Visitor
+Descripción
+El patrón Visitor pertenece a la categoría de patrones de comportamiento y permite definir nuevas operaciones sobre una jerarquía de clases sin modificar sus estructuras. Este patrón promueve la separación entre la representación de los objetos y las operaciones que se ejecutan sobre ellos, aportando flexibilidad y facilidad de extensión.
+En términos simples, cada clase acepta un visitante externo que contiene la lógica de negocio correspondiente, evitando que esta quede incrustada dentro de la propia clase.
+Aplicación en el sistema universitario
+El patrón Visitor se aplicó en la gestión de solicitudes estudiantiles, tales como:
+Solicitud de certificados académicos.
+Solicitud de citas con el consejero.
+Para ello se definió una interfaz base Solicitud, que es implementada por las solicitudes concretas (SolicitudCertificado y SolicitudCitaConsejero). Cada solicitud delega la validación al visitante mediante el método aceptar.
+El visitante abstracto (SolicitudVisitor) declara las operaciones necesarias para procesar cada tipo de solicitud, y el visitante concreto (ValidacionSolicitudVisitor) implementa la lógica particular de validación. Finalmente, el Estudiante actúa como cliente que acepta el visitante para gestionar sus solicitudes.
+Beneficios identificados
+Separación de responsabilidades: las clases de solicitudes se limitan a representar datos, mientras que la lógica de validación queda en el visitante.
+Extensibilidad: la incorporación de nuevas solicitudes o reglas de negocio no requiere modificar las clases existentes, solo agregar nuevas implementaciones de visitante.
+Flexibilidad: múltiples visitantes pueden operar sobre las mismas solicitudes, permitiendo aplicar diferentes operaciones (validación, generación de reportes, estadísticas, entre otras).
+Mantenibilidad: el sistema evita la rigidez y facilita su evolución en un entorno académico cambiante.
+Conclusión
+El patrón Visitor es apropiado para la gestión de solicitudes estudiantiles, ya que permite extender el sistema con facilidad, mantiene las clases simples y separadas de la lógica de negocio, y ofrece flexibilidad para agregar nuevas operaciones sin alterar el código ya existente. Esto contribuye a un diseño más escalable, ordenado y mantenible en el contexto universitario.
